@@ -93,10 +93,13 @@
 <!-- BGM用 -->
 <audio id="bgmPlayer" loop></audio>
 
+<!-- BGM用 -->
+<audio id="bgmPlayer" loop></audio>
+
 <!-- BGM選択UI -->
 <div id="bgmPrompt" class="d-flex justify-content-center align-items-center"
      style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.95);z-index:2000;">
-  <div class="text-center">
+  <div class="text-center bg-white p-4 rounded shadow">
     <p class="mb-3 fs-5">BGMを再生しますか？</p>
     <button id="bgmYes" class="btn btn-primary me-2">YES</button>
     <button id="bgmNo" class="btn btn-secondary">NO</button>
@@ -106,7 +109,8 @@
 <script>
   const bgmList = [
     'music/bgm1.mp3',
-
+    'music/bgm2.mp3',
+    'music/bgm3.mp3'
   ];
 
   function getRandomBGM() {
@@ -123,16 +127,16 @@
     audio.play().catch(err=>{
       console.log("再生エラー:", err);
     });
-    promptDiv.style.display = "none"; // 画面から消す
+    promptDiv.classList.add("d-none"); // Bootstrapの非表示クラスで隠す
   });
 
   // NOボタン
   document.getElementById('bgmNo').addEventListener('click', () => {
-    promptDiv.style.display = "none"; // 画面から消すだけ
+    promptDiv.classList.add("d-none"); // これで確実に非表示になる
   });
 </script>
 
-
 </body>
 </html>
+
 
